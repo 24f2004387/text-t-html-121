@@ -1,5 +1,7 @@
+document.title = "Markdown Loader";
+
 const urlParams = new URLSearchParams(window.location.search);
-const markdownUrl = urlParams.get('url') || 'attachment.md';
+const markdownUrl = urlParams.get('url') || 'mkd-023.md';
 const sourceLabel = document.querySelector("#markdown-source-label");
 const contentDiv = document.querySelector("#markdown-content");
 
@@ -14,5 +16,6 @@ fetch(markdownUrl)
         });
     })
     .catch(error => {
-        contentDiv.textContent = 'Error loading markdown: ' + error.message;
+        contentDiv.textContent = "Error loading markdown.";
+        console.error(error);
     });
